@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Food {% endblock %}
+{% block content %}
+
+    <!-- Banner Area Starts -->
+    <section class="banner-area banner-area2 menu-bg text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1><i>Our Menu</i></h1>
+                    <p class="pt-2"><i>Beast kind form divide night above let moveth bearing darkness.</i></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
+
+    <!-- Food Area starts -->
+    <section class="food-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="section-top">
+                        <h3><span class="style-change">we serve</span> <br>delicious food</h3>
+                        <p class="pt-3">They're fill divide i their yielding our after have him fish on there for greater man moveth, moved Won't together isn't for fly divide mids fish firmament on net.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              {% for food in food_list %}
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-food">
+                        <div class="food-img">
+                            <a href="{% url 'detail' food.pk %}"><img src="{{ food.image.url }}" class="img-fluid" alt=""></a>
+                        </div>
+                        <div class="food-content">
+                            <div class="d-flex justify-content-between">
+                                <a href="{% url 'detail' food.pk %}"><h5>{{ food.title }}</h5></a>
+                                <span class="style-change">TK {{ food.price }}</span>
+                            </div>
+                            <p class="pt-3">{{ food.description|truncatewords:20 }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Food Area End -->
+
+
+    <!-- Table Area End -->
+{% endblock %}
