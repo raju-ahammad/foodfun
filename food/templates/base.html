@@ -47,16 +47,24 @@
                     <div class="main-menu main-menu2">
                         <ul>
                             <li class="active"><a href="{% url 'home' %}">home</a></li>
-                            <li><a href="{% url 'contact' %}">about</a></li>
-                            <li><a href="menu.html">menu</a></li>
-                            <li><a href="#">blog</a>
+
+                            <li><a href="{% url 'menu' %}">menu</a></li>
+                             <li><a href="{% url 'about' %}">about</a></li>
+
+                            <li><a href="{% url 'contact' %}">contact</a></li>
+                            <li> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  {{ user.username }}
+                                </a>
                                 <ul class="sub-menu">
-                                    <li><a href="blog-home.html">Blog Home</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                    {%  if user.is_authenticated %}
+                                    <li><a href="{% url 'logout' %}"> Logout </a></li>
+                                    {% else %}
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'signup' %}">SignUp</a></li>
+                                    {% endif %}
                                 </ul>
                             </li>
-                            <li><a href="{% url 'contact' %}">contact</a></li>
-                            <li><a href="elements.html">Elements</a></li>
+
                         </ul>
                     </div>
                 </div>

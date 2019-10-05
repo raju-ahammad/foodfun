@@ -10,8 +10,9 @@ urlpatterns = [
 
     path('', views.HomeListView.as_view(), name='home'),
     path('home', views.HomeListView.as_view(), name='home'),
-    path('contact', views.contact, name='contact'),
-    path('contact', views.about, name='about'),
+    path('menu', views.MenuListView.as_view(), name='menu'),
+    path('contact', views.ConatactCreateView.as_view(), name='contact'),
+    path('about', views.about, name='about'),
     path('detail/<int:pk>', views.FoodDetailView.as_view(), name='detail'),
 ]
 urlpatterns+=staticfiles_urlpatterns()
